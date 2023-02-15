@@ -1,55 +1,17 @@
-# Angular basic
+# ng-tetris
 
-[Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/overview) allows you to easily build [Angular](https://angular.io/) apps in minutes. Use this repo with the [Angular quickstart](https://docs.microsoft.com/azure/static-web-apps/getting-started?tabs=angular) to build and customize a new static site.
+Tetris game in Angular. [Play it now!](https://focused-mestorf-930f82.netlify.com/)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
+Read the [blog about making the game](https://medium.com/angular-in-depth/game-development-tetris-in-angular-64ef96ce56f7?sk=66ab4b5774919de28eecd3a2662557a4) 
 
-## Project setup
+![tetris picture](src/assets/share-image-large.png)
 
-```bash
-npm install
-```
+## Development server
 
-### Start the dev server
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-```bash
-npm run swa:start
-```
+## Build
 
-> Note: This command will use the local configuration file `swa-cli.config.json`.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-### Run unit tests
 
-```bash
-npm test
-```
-
-### Run e2e tests
-
-```bash
-npm run e2e
-```
-
-### Lints and fixes files
-
-```bash
-npm run lint
-```
-
-### Compiles and minifies for production
-
-```bash
-npm run build
-```
-
-### Login to Azure
-
-```bash
-npm run swa:login
-```
-
-### Deploy to Azure
-
-```bash
-npm run swa:deploy
-```
