@@ -20,6 +20,7 @@ import {
 import { Piece, IPiece } from './piece';
 import { GameService } from './game.service';
 import { Zoundfx } from 'ng-zzfx';
+import { IotService } from './iot.service';
 
 @Component({
   selector: 'game-board',
@@ -76,7 +77,7 @@ export class BoardComponent implements OnInit {
     }
   }
 
-  constructor(private service: GameService) {}
+  constructor(private service: GameService, private iotService: IotService) {}
 
   ngOnInit() {
     this.initBoard();
@@ -163,7 +164,6 @@ export class BoardComponent implements OnInit {
     if (this.service.valid(p, this.board)) {
       this.piece.move(p);
     } else {
-      debugger;
       this.freeze();
       this.clearLines();
       if (this.piece.y === 0) {
@@ -289,6 +289,9 @@ export class BoardComponent implements OnInit {
     this.ctx.font = '1px Arial';
     this.ctx.fillStyle = 'red';
     this.ctx.fillText('GAME OVER', 1.8, 4);
+    this.iotService.execute().subscribe(() => {
+
+    });
   }
 
   getEmptyBoard(): number[][] {
