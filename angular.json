@@ -39,7 +39,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "baseHref": "angularstaticapp",
+              "baseHref": "/angularstaticapp/",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
