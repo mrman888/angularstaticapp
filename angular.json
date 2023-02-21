@@ -24,7 +24,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss", "src/fireworks.scss" 
             ],
             "scripts": []
           },

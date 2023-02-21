@@ -54,7 +54,7 @@ export class BoardComponent implements OnInit {
   playSoundFn: Function;
 
 
-  timeleft = 10;
+  timeleft = 30;
   
   @HostListener('window:keydown', ['$event'])
   keyEvent(event: KeyboardEvent) {
@@ -118,7 +118,7 @@ export class BoardComponent implements OnInit {
   }
 
   play() {
-    
+    this.timeleft = 30;
     var downloadTimer = setInterval(() => {
       if(this.timeleft <= 0){
         clearInterval(downloadTimer);
