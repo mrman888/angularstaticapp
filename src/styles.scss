@@ -5,7 +5,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 320px 200px;
+  grid-template-columns: 320px 230px;
 }
 
 .right-column {
@@ -21,11 +21,12 @@
 
 .button-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
 
   .play-button {
     background-color: #4caf50;
+    margin-bottom:5px;
   }
 
   .reset-button {

@@ -53,6 +53,9 @@ export class BoardComponent implements OnInit {
   };
   playSoundFn: Function;
 
+
+  timeleft = 10;
+  
   @HostListener('window:keydown', ['$event'])
   keyEvent(event: KeyboardEvent) {
     if (event.keyCode === KEY.ESC) {
@@ -115,6 +118,17 @@ export class BoardComponent implements OnInit {
   }
 
   play() {
+    
+    var downloadTimer = setInterval(() => {
+      if(this.timeleft <= 0){
+        clearInterval(downloadTimer);
+        this.gameOver();
+      } 
+      if(this.gameStarted) { 
+      this.timeleft -= 1;
+      }
+    }, 1000);
+
     this.gameStarted = true;
     this.resetGame();
     this.next = new Piece(this.ctx);
@@ -289,9 +303,8 @@ export class BoardComponent implements OnInit {
     this.ctx.font = '1px Arial';
     this.ctx.fillStyle = 'red';
     this.ctx.fillText('GAME OVER', 1.8, 4);
-    this.iotService.execute().subscribe(() => {
-
-    });
+    // this.iotService.execute().subscribe(() => {
+    // });
   }
 
   getEmptyBoard(): number[][] {
