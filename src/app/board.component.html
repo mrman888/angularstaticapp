@@ -1,7 +1,7 @@
 <div>    {{timeleft}}</div>
 
 <div class="grid pyro">
-    <!-- <div class="before" style="left:-50px;"></div>  -->
+    <div *ngIf="showFireworks" class="before" style="left:-50px;"></div> 
     <canvas #board class="game-board"></canvas>
     <div class="right-column">
         <div>
@@ -38,5 +38,5 @@
             </button>
         </div>
     </div>
-    <!-- <div class="after"></div> -->
+    <div *ngIf="showFireworks" class="after"></div>
 </div>

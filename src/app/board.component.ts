@@ -52,9 +52,9 @@ export class BoardComponent implements OnInit {
     [KEY.UP]: (p: IPiece): IPiece => this.service.rotate(p)
   };
   playSoundFn: Function;
+  showFireworks = false;
 
-
-  timeleft = 30;
+  timeleft = 40;
   
   @HostListener('window:keydown', ['$event'])
   keyEvent(event: KeyboardEvent) {
@@ -297,12 +297,22 @@ export class BoardComponent implements OnInit {
   gameOver() {
     this.gameStarted = false;
     cancelAnimationFrame(this.requestId);
+
+    if(this.points > this.highScore)
+    {
+      this.showFireworks = true;
+      setTimeout(() => {
+        this.showFireworks = false;
+        //your code to be executed after 1 second
+      }, 6000);
+    }
     this.highScore = this.points > this.highScore ? this.points : this.highScore;
     this.ctx.fillStyle = 'black';
     this.ctx.fillRect(1, 3, 8, 1.2);
     this.ctx.font = '1px Arial';
     this.ctx.fillStyle = 'red';
     this.ctx.fillText('GAME OVER', 1.8, 4);
+  
     // this.iotService.execute().subscribe(() => {
     // });
   }
