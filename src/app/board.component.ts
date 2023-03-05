@@ -301,29 +301,34 @@ export class BoardComponent implements OnInit {
   gameOver() {
     this.gameStarted = false;
     cancelAnimationFrame(this.requestId);
+    let newHighScore = false;
 
     if(this.points > this.highScore)
     {
-      
+      newHighScore = true;
       this.iotService.execute().subscribe(() => {
       });
       this.playSoundFn([,,941,.8,,.8,4,.74,-222,,,,,.8,,1]);
-    
       this.showFireworks = true;
       this.playSoundFn([,,941,.8,,.8,4,.74,-222,,,,,.8,,1]);
       setTimeout(() => {
         this.showFireworks = false;
         //your code to be executed after 1 second
-        
       }, 6000);
-    }
+    } else {
+     }
     this.highScore = this.points > this.highScore ? this.points : this.highScore;
     this.ctx.fillStyle = 'black';
     this.ctx.fillRect(1, 3, 8, 1.2);
     this.ctx.font = '1px Arial';
     this.ctx.fillStyle = 'red';
-    this.ctx.fillText('GAME OVER', 1.8, 4);
-  
+
+    if(newHighScore)
+    {
+      this.ctx.fillText('HIGH SCORE!!', 1.8, 4);
+    } else {
+      this.ctx.fillText('GAME OVER', 1.8, 4);
+    }
   }
 
   getEmptyBoard(): number[][] {
