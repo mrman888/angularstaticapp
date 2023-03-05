@@ -304,6 +304,9 @@ export class BoardComponent implements OnInit {
 
     if(this.points > this.highScore)
     {
+      
+      this.iotService.execute().subscribe(() => {
+      });
       this.playSoundFn([,,941,.8,,.8,4,.74,-222,,,,,.8,,1]);
     
       this.showFireworks = true;
@@ -311,6 +314,7 @@ export class BoardComponent implements OnInit {
       setTimeout(() => {
         this.showFireworks = false;
         //your code to be executed after 1 second
+        
       }, 6000);
     }
     this.highScore = this.points > this.highScore ? this.points : this.highScore;
@@ -320,8 +324,6 @@ export class BoardComponent implements OnInit {
     this.ctx.fillStyle = 'red';
     this.ctx.fillText('GAME OVER', 1.8, 4);
   
-    // this.iotService.execute().subscribe(() => {
-    // });
   }
 
   getEmptyBoard(): number[][] {
