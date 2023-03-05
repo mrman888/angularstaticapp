@@ -54,7 +54,9 @@ export class BoardComponent implements OnInit {
   playSoundFn: Function;
   showFireworks = false;
 
-  timeleft = 40;
+  defaultTimeLeft = 60;
+  timeleft = this.defaultTimeLeft;
+
   
   @HostListener('window:keydown', ['$event'])
   keyEvent(event: KeyboardEvent) {
@@ -118,7 +120,8 @@ export class BoardComponent implements OnInit {
   }
 
   play() {
-    this.timeleft = 30;
+    this.timeleft = this.defaultTimeLeft;
+    this.showFireworks = false;
     var downloadTimer = setInterval(() => {
       if(this.timeleft <= 0){
         clearInterval(downloadTimer);
@@ -185,6 +188,7 @@ export class BoardComponent implements OnInit {
         return false;
       }
       this.playSoundFn([ , , 224,.02,.02,.08,1,1.7,-13.9 , , , , , ,6.7]);
+      
       this.piece = this.next;
       this.next = new Piece(this.ctx);
       this.next.drawNext(this.ctxNext);
@@ -300,7 +304,10 @@ export class BoardComponent implements OnInit {
 
     if(this.points > this.highScore)
     {
+      this.playSoundFn([,,941,.8,,.8,4,.74,-222,,,,,.8,,1]);
+    
       this.showFireworks = true;
+      this.playSoundFn([,,941,.8,,.8,4,.74,-222,,,,,.8,,1]);
       setTimeout(() => {
         this.showFireworks = false;
         //your code to be executed after 1 second

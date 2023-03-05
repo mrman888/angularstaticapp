@@ -1,11 +1,9 @@
-<div>    {{timeleft}}</div>
-
 <div class="grid pyro">
     <div *ngIf="showFireworks" class="before" style="left:-50px;"></div> 
     <canvas #board class="game-board"></canvas>
     <div class="right-column">
         <div>
-            <h1>JULIANA TETRIS</h1>
+            <h1 style="text-align:center">JULIANA TETRIS</h1>
             <p>Score: {{ points }}</p>
             <p>Lines: {{ lines }}</p>
             <p>Level: {{ level }}</p>
@@ -14,6 +12,7 @@
             <p>Next Block:</p>
             <canvas #next class="next"></canvas>
         </div>
+        <div class="time-left"> {{timeleft}}</div>
         <div class="button-container">
             <button
                 (click)="play()"

@@ -3,6 +3,13 @@
   font-family: 'Press Start 2P', cursive;
 }
 
+.time-left {
+  display:flex;
+  font-size:50px;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 320px 230px;
@@ -12,7 +19,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 300px;
+  //width: 300px;
 }
 
 .game-board {
@@ -23,6 +30,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom:20px;
+  margin-top:20px;
 
   .play-button {
     background-color: #4caf50;
